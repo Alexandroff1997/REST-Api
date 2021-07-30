@@ -13,7 +13,7 @@ export default function App() {
     name: '',
     value: '',
     id: '',
-    marked: ''
+    marked: false
   })
 
   const [contacts, setContacts] = useState([])
@@ -34,6 +34,12 @@ export default function App() {
       ...contacts,
       contact
     ])
+    setForm({
+      name: '',
+      value: '',
+      id: '',
+      marked: false
+    })
   }
 
   return (
