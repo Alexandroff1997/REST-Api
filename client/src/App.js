@@ -42,12 +42,17 @@ export default function App() {
     })
   }
 
+  const changeContact = contact => {
+    setContacts(contacts.map(el => el.id === contact.id ? contact : el))
+  }
+
   return (
     <CardContext.Provider value={{
       form,
       contacts,
       changeHandler,
-      createContact
+      createContact,
+      changeContact
     }}>
       <div>
         <CreatePageForm />

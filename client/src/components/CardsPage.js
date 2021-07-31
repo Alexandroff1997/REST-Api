@@ -2,10 +2,12 @@ import React from 'react'
 import {useCardProvider} from "../App"
 
 export const CardsPage = () => {
-  const { contacts } = useCardProvider()
+  const { contacts, changeContact } = useCardProvider()
 
-  function toggleMarked(id) {
-    contacts.forEach(el => el.id === id ? el.marked = true : el.marked)
+  const toggleMarked = id => {
+    const contact = contacts.find(el => el.id === id)
+    contact.marked = !contact.marked
+    changeContact(contact)
   }
 
   if (contacts.length === 0) {
