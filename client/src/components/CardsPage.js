@@ -2,7 +2,7 @@ import React from 'react'
 import {useCardProvider} from "../App"
 
 export const CardsPage = () => {
-  const { contacts, changeContact } = useCardProvider()
+  const { contacts, changeContact, removeContact } = useCardProvider()
 
   const toggleMarked = id => {
     const contact = contacts.find(el => el.id === id)
@@ -27,7 +27,7 @@ export const CardsPage = () => {
             className="btn btn-primary"
             disabled={el.marked ? "enable" : ""}
           >Отметить</button>
-          <button className="btn btn-danger">Удалить</button>
+          <button onClick={() => removeContact(el.id)} className="btn btn-danger">Удалить</button>
         </div>
       </div>
     )

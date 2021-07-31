@@ -51,6 +51,10 @@ export default function App() {
     setContacts(contacts.map(el => el.id === contact.id ? contact : el))
   }
 
+  const removeContact = id => {
+    setContacts(contacts.filter(el => el.id !== id))
+  }
+
   return (
     <CardContext.Provider value={{
       form,
@@ -58,7 +62,8 @@ export default function App() {
       block,
       changeHandler,
       createContact,
-      changeContact
+      changeContact,
+      removeContact
     }}>
       <div>
         <CreatePageForm />

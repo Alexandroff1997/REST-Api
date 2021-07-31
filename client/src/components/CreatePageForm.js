@@ -18,7 +18,6 @@ export const CreatePageForm = () => {
             id="name"
             name="name"
             value={form.name} />
-          <p>{form.name}</p>
         </div>
         <div>
           <label htmlFor="value" className="mr-3">Значение</label>
@@ -29,7 +28,6 @@ export const CreatePageForm = () => {
             id="value"
             name="value"
             value={form.value} />
-          <p>{form.value}</p>
         </div>
         <button
           className="btn btn-primary"
