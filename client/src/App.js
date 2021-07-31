@@ -13,18 +13,23 @@ export default function App() {
     name: '',
     value: '',
     id: '',
-    marked: false
+    marked: ''
   })
+
+  const [block, setBlock] = useState(false)
 
   const [contacts, setContacts] = useState([])
 
   const changeHandler = e => {
     setForm({
       ...form,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
       id: Date.now(),
       marked: false
     })
+    form.name.length === 0 && form.value.length === 0 ?
+      setBlock(false) :
+      setBlock(true)
   }
 
   const createContact = e => {
@@ -38,7 +43,7 @@ export default function App() {
       name: '',
       value: '',
       id: '',
-      marked: false
+      marked: ''
     })
   }
 
@@ -50,6 +55,7 @@ export default function App() {
     <CardContext.Provider value={{
       form,
       contacts,
+      block,
       changeHandler,
       createContact,
       changeContact

@@ -6,7 +6,7 @@ export const CardsPage = () => {
 
   const toggleMarked = id => {
     const contact = contacts.find(el => el.id === id)
-    contact.marked = !contact.marked
+    contact.marked = true
     changeContact(contact)
   }
 
@@ -22,7 +22,11 @@ export const CardsPage = () => {
         <div className="card-body">
           <h5 style={{color: el.marked ? 'red' : 'black'}} className="card-title">{el.name}</h5>
           <p className="card-text">{el.value}</p>
-          <button onClick={() => {toggleMarked(el.id)}} className="btn btn-primary">Отметить</button>
+          <button
+            onClick={() => {toggleMarked(el.id)}}
+            className="btn btn-primary"
+            disabled={el.marked ? "enable" : ""}
+          >Отметить</button>
           <button className="btn btn-danger">Удалить</button>
         </div>
       </div>
