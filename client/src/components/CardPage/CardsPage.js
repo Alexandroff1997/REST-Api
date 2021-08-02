@@ -1,5 +1,5 @@
 import React from 'react'
-import {useCardProvider} from "../App"
+import {useCardProvider} from "../AppContext/AppCardContext"
 
 export const CardsPage = () => {
   const { contacts, changeContact, removeContact } = useCardProvider()
