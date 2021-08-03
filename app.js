@@ -3,7 +3,8 @@ const path = require('path')
 const app = express()
 
 const CONTACTS = [
-  {id: 1, name: 'Alexander', value: '8-800-555-35-35', marked: false}
+  {id: 1, name: 'Alexander', value: '8-800-555-35-35', marked: false},
+  {id: 2, name: 'Alex', value: '8-800-555-34-35', marked: false}
 ]
 
 app.use('/', express.static(path.join(__dirname, 'client', 'build')))

@@ -6,7 +6,8 @@ export const useCardProvider = () => {
   return useContext(CardContext)
 }
 
-export const AppCardContext = ({ children }) => {
+export const AppCardContext = ({ children, serverData }) => {
+
   const [form, setForm] = useState({
     name: '',
     value: '',
@@ -16,7 +17,7 @@ export const AppCardContext = ({ children }) => {
 
   const [block, setBlock] = useState(false)
 
-  const [contacts, setContacts] = useState([])
+  const [contacts, setContacts] = useState([...serverData])
 
   const changeHandler = e => {
     setForm({
