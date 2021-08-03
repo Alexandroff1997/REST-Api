@@ -58,7 +58,8 @@ export const AppCardContext = ({ children, serverData }) => {
     setContacts(contacts.map(el => el.id === contact.id ? contact : el))
   }
 
-  const removeContact = id => {
+  async function removeContact(id) {
+    await request(`/api/contacts/${id}`, 'DELETE')
     setContacts(contacts.filter(el => el.id !== id))
   }
 
