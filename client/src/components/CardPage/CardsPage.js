@@ -1,12 +1,17 @@
 import React from 'react'
 import {useCardProvider} from "../AppContext/AppCardContext"
+import {request} from "../../express/express";
 
 export const CardsPage = () => {
   const { contacts, changeContact, removeContact } = useCardProvider()
 
-  const toggleMarked = id => {
+  async function toggleMarked(id){
     const contact = contacts.find(el => el.id === id)
-    contact.marked = true
+    const upd = await request(`/api/contacts/${id}`, 'PUT', {
+      ...contact,
+      marked: true
+    })
+    contact.marked = upd.marked
     changeContact(contact)
   }
 

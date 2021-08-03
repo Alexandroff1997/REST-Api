@@ -28,6 +28,12 @@ app.delete('/api/contacts/:id', (req, res) => {
   res.status(200).json({message: 'Контакт был удален'})
 })
 
+app.put('/api/contacts/:id', (req, res) => {
+  const index = CONTACTS.findIndex(el => el.id === req.params.id)
+  CONTACTS[index] = req.body
+  res.json(CONTACTS[index])
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 })
