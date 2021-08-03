@@ -4,7 +4,7 @@ export async function request(url, method = 'GET', data = null ) {
     let body
 
     if (data) {
-      headers['Context-Type'] = 'application/json'
+      headers['Content-Type'] = 'application/json'
       body = JSON.stringify(data)
     }
 

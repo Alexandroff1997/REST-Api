@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import {request} from "../../express/express";
 
 const CardContext = React.createContext()
 
@@ -31,12 +32,18 @@ export const AppCardContext = ({ children, serverData }) => {
       setBlock(true)
   }
 
-  const createContact = e => {
+  async function createContact (e) {
     e.preventDefault()
-    const {...contact} = form
+    const {name, value} = form
+    const contactDate = {
+      name,
+      value
+    }
+    const newContact = await request('/api/contacts', 'POST', contactDate)
+
     setContacts([
       ...contacts,
-      contact
+      newContact
     ])
     setForm({
       name: '',

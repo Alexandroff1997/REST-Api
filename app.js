@@ -4,10 +4,10 @@ const {v4} = require('uuid')
 const app = express()
 
 const CONTACTS = [
-  {id: 1, name: 'Alexander', value: '8-800-555-35-35', marked: false},
-  {id: 2, name: 'Alex', value: '8-800-555-34-35', marked: false},
-  {id: 3, name: 'Marina', value: '8-800-555-34-35', marked: true},
+  {id: v4(), name: 'Alexander', value: '8-800-555-35-35', marked: false}
 ]
+
+app.use(express.json())
 
 app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
@@ -15,6 +15,12 @@ app.get('/api/contacts', (req, res) => {
   setTimeout(() => {
     res.status(200).json(CONTACTS)
   }, 1000)
+})
+
+app.post('/api/contacts', (req, res) => {
+  const contact = {...req.body, id: v4(), marked: false}
+  CONTACTS.push(contact)
+  res.status(201).json(contact)
 })
 
 app.get('*', (req, res) => {
