@@ -27,7 +27,11 @@ export default class App extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <div ><h1 style={{textAlign: 'center'}}>Идет загрузка, подождите</h1></div>
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      )
     }
 
     return (

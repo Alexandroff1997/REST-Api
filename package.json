@@ -12,7 +12,8 @@
   "author": "Alexandrov Alexander <alexandroff1997@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
