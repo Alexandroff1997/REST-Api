@@ -27,7 +27,7 @@ export default class App extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="spinner-border" role="status">
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} className="container spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
       )
@@ -35,7 +35,7 @@ export default class App extends Component {
 
     return (
       <AppCardContext serverData={this.state.serverData}>
-        <div>
+        <div className="container">
           <CreatePageForm />
           <CardsPage />
         </div>
